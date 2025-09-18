@@ -14,15 +14,23 @@
 
     /* Genre Cards */
     .genre-card { 
-      background: #1f2937; 
-      border-radius: 1rem;
-      border: 1px solid #374151;
       position: relative; 
-      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      border-radius: 1rem;
       overflow: hidden;
       min-height: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      cursor: pointer;
     }
     .genre-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+
+    /* Overlay on Card */
+    .genre-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      transition: background 0.3s ease;
+    }
+    .genre-card:hover .genre-overlay { background: rgba(0,0,0,0.2); }
 
     /* Dropdown Videos */
     .dropdown { 
@@ -128,96 +136,100 @@
   </section>
 
   <!-- Browse Genres -->
-<section id="browse" class="py-16 px-6">
-  <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+  <section id="browse" class="py-16 px-6">
+    <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-    <!-- English Horror -->
-    <div class="genre-card group relative cursor-pointer">
-      <img src="https://images.unsplash.com/photo-1549887534-3db1bd59dcca?auto=format&fit=crop&w=1200&q=80" 
-           alt="English Horror" class="absolute inset-0 w-full h-full object-cover opacity-70">
-      <div class="relative p-6 z-10">
-        <h4 class="font-semibold text-lg mb-4">English Horror</h4>
-      </div>
-      <div class="dropdown">
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>The Haunting Whisper vs The Last Tenant</p>
-          <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" class="watch-btn">Watch Now</a>
+      <!-- English Horror -->
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1549887534-3db1bd59dcca?auto=format&fit=crop&w=1200&q=80"
+             class="w-full h-full object-cover" alt="English Horror">
+        <div class="genre-overlay"></div>
+        <div class="absolute bottom-6 left-6 z-10">
+          <h4 class="text-lg font-semibold">English Horror</h4>
         </div>
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/iZSvXhRhj-E/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Storytime Short Horror Film</p>
-          <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" class="watch-btn">Watch Now</a>
+        <div class="dropdown">
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>The Haunting Whisper vs The Last Tenant</p>
+            <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/iZSvXhRhj-E/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Storytime Short Horror Film</p>
+            <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
         </div>
       </div>
+
+      <!-- Hindi Horror -->
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1601991925712-3b3f8c1105ad?auto=format&fit=crop&w=1200&q=80"
+             class="w-full h-full object-cover" alt="Hindi Horror">
+        <div class="genre-overlay"></div>
+        <div class="absolute bottom-6 left-6 z-10">
+          <h4 class="text-lg font-semibold">Hindi Horror</h4>
+        </div>
+        <div class="dropdown">
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>HUNCH (Hindi Horror Short)</p>
+            <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/OeBDrJ7fGq0/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Pizza – Horror Short Film</p>
+            <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mythology -->
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1516893840852-7dcdd53d50b2?auto=format&fit=crop&w=1200&q=80"
+             class="w-full h-full object-cover" alt="Mythology">
+        <div class="genre-overlay"></div>
+        <div class="absolute bottom-6 left-6 z-10">
+          <h4 class="text-lg font-semibold">Mythology</h4>
+        </div>
+        <div class="dropdown">
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Pandora’s Box</p>
+            <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/g6Lay-r6txA/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Daedalus & Icarus</p>
+            <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sci-Fi -->
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1581091215367-59ab6a2d89ec?auto=format&fit=crop&w=1200&q=80"
+             class="w-full h-full object-cover" alt="Sci-Fi">
+        <div class="genre-overlay"></div>
+        <div class="absolute bottom-6 left-6 z-10">
+          <h4 class="text-lg font-semibold">Sci-Fi</h4>
+        </div>
+        <div class="dropdown">
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/IzO1mCAVyMw/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Plurality (Sci-Fi Short)</p>
+            <a href="https://www.youtube.com/watch?v=IzO1mCAVyMw" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/6hB3S9bIaco/mqdefault.jpg" class="w-full h-40 object-cover rounded-lg">
+            <p>Galactic Odyssey</p>
+            <a href="https://www.youtube.com/watch?v=6hB3S9bIaco" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Hindi Horror -->
-    <div class="genre-card group relative cursor-pointer">
-      <img src="https://images.unsplash.com/photo-1601991925712-3b3f8c1105ad?auto=format&fit=crop&w=1200&q=80" 
-           alt="Hindi Horror" class="absolute inset-0 w-full h-full object-cover opacity-70">
-      <div class="relative p-6 z-10">
-        <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
-      </div>
-      <div class="dropdown">
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>HUNCH (Hindi Horror Short)</p>
-          <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/OeBDrJ7fGq0/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Pizza – Horror Short Film</p>
-          <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mythology -->
-    <div class="genre-card group relative cursor-pointer">
-      <img src="https://images.unsplash.com/photo-1516893840852-7dcdd53d50b2?auto=format&fit=crop&w=1200&q=80" 
-           alt="Mythology" class="absolute inset-0 w-full h-full object-cover opacity-70">
-      <div class="relative p-6 z-10">
-        <h4 class="font-semibold text-lg mb-4">Mythology</h4>
-      </div>
-      <div class="dropdown">
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Pandora’s Box</p>
-          <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/g6Lay-r6txA/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Daedalus & Icarus</p>
-          <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sci-Fi -->
-    <div class="genre-card group relative cursor-pointer">
-      <img src="https://images.unsplash.com/photo-1581091215367-59ab6a2d89ec?auto=format&fit=crop&w=1200&q=80" 
-           alt="Sci-Fi" class="absolute inset-0 w-full h-full object-cover opacity-70">
-      <div class="relative p-6 z-10">
-        <h4 class="font-semibold text-lg mb-4">Sci-Fi</h4>
-      </div>
-      <div class="dropdown">
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/IzO1mCAVyMw/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Plurality (Sci-Fi Short)</p>
-          <a href="https://www.youtube.com/watch?v=IzO1mCAVyMw" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-        <div class="video-card">
-          <img src="https://img.youtube.com/vi/6hB3S9bIaco/mqdefault.jpg" class="w-full h-36 object-cover">
-          <p>Galactic Odyssey</p>
-          <a href="https://www.youtube.com/watch?v=6hB3S9bIaco" target="_blank" class="watch-btn">Watch Now</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- Fan Shows -->
   <section id="fan-shows" class="py-16 px-6">
