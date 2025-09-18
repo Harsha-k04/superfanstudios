@@ -10,6 +10,7 @@
     body { font-family: 'Inter', sans-serif; }
 
     .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
     .genre-card { 
       background: linear-gradient(145deg, #1f2937, #374151); 
       border: 1px solid #4b5563; 
@@ -17,10 +18,25 @@
       transition: transform 0.2s ease; 
     }
     .genre-card:hover { transform: translateY(-4px); }
+
     .video-card:hover .watch-btn { display: block; }
     .watch-btn { display: none; }
+
     /* Ensure hover works for the whole card */
     .genre-card:hover .dropdown { display: flex; }
+
+    /* Horizontal video cards */
+    .dropdown {
+      flex-direction: row !important;
+      overflow-x: auto;
+      gap: 1rem;
+      width: max-content;
+      scrollbar-width: none; /* Firefox */
+    }
+    .dropdown::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    .video-card { min-width: 180px; flex-shrink: 0; }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -72,12 +88,12 @@
   <!-- Browse Genres -->
   <section id="browse" class="py-16 px-6">
     <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
-    <div class="flex flex-wrap gap-8">
+    <div class="flex flex-wrap justify-between gap-12">
 
       <!-- English Horror -->
       <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
-        <h4 class="font-semibold text-lg">English Horror</h4>
-        <div class="dropdown hidden flex-col gap-4 absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
+        <h4 class="font-semibold text-lg mb-4">English Horror</h4>
+        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card relative rounded-lg overflow-hidden">
             <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
             <p class="text-sm p-2">The Haunting Whisper vs The Last Tenant</p>
@@ -93,8 +109,8 @@
 
       <!-- Hindi Horror -->
       <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
-        <h4 class="font-semibold text-lg">Hindi Horror</h4>
-        <div class="dropdown hidden flex-col gap-4 absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
+        <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
+        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card relative rounded-lg overflow-hidden">
             <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
             <p class="text-sm p-2">HUNCH (Hindi Horror Short)</p>
@@ -110,8 +126,8 @@
 
       <!-- Mythology -->
       <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
-        <h4 class="font-semibold text-lg">Mythology</h4>
-        <div class="dropdown hidden flex-col gap-4 absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
+        <h4 class="font-semibold text-lg mb-4">Mythology</h4>
+        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card relative rounded-lg overflow-hidden">
             <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
             <p class="text-sm p-2">Pandora’s Box</p>
@@ -127,8 +143,8 @@
 
       <!-- Sci-Fi Thrillers -->
       <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
-        <h4 class="font-semibold text-lg">Sci-Fi Thrillers</h4>
-        <div class="dropdown hidden flex-col gap-4 absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
+        <h4 class="font-semibold text-lg mb-4">Sci-Fi Thrillers</h4>
+        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card relative rounded-lg overflow-hidden">
             <img src="https://img.youtube.com/vi/q7DRviMc2u0/mqdefault.jpg" class="w-full h-36 object-cover">
             <p class="text-sm p-2">Guest (Short Film)</p>
