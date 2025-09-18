@@ -6,58 +6,94 @@
   <title>SuperFan Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body { font-family: 'Inter', sans-serif; }
 
-    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    /* Header Gradient */
+    .gradient-bg { background: linear-gradient(135deg, #4f46e5, #3b82f6); }
 
+    /* Genre Cards */
     .genre-card { 
-      background: linear-gradient(145deg, #1f2937, #374151); 
-      border: 1px solid #4b5563; 
+      background: #1f2937; 
+      border-radius: 1rem;
+      border: 1px solid #374151;
       position: relative; 
-      transition: transform 0.2s ease; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
     }
-    .genre-card:hover { transform: translateY(-4px); }
+    .genre-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-    .video-card:hover .watch-btn { display: block; }
-    .watch-btn { display: none; }
-
-    /* Ensure hover works for the whole card */
-    .genre-card:hover .dropdown { display: flex; }
-
-    /* Horizontal video cards */
-    .dropdown {
-      flex-direction: row !important;
-      overflow-x: auto;
-      gap: 1rem;
-      width: max-content;
-      scrollbar-width: none; /* Firefox */
+    /* Dropdown Videos */
+    .dropdown { 
+      flex-direction: row !important; 
+      overflow-x: auto; 
+      gap: 1rem; 
+      width: max-content; 
+      scrollbar-width: none; 
+      padding-bottom: 0.5rem;
     }
-    .dropdown::-webkit-scrollbar {
-      display: none; /* Chrome, Safari */
+    .dropdown::-webkit-scrollbar { display: none; }
+
+    /* Video Card */
+    .video-card { 
+      min-width: 200px; 
+      flex-shrink: 0; 
+      border-radius: 0.75rem; 
+      overflow: hidden; 
+      position: relative;
+      transition: transform 0.2s ease;
     }
-    .video-card { min-width: 180px; flex-shrink: 0; }
+    .video-card:hover { transform: scale(1.05); }
+
+    /* Watch Button Centered */
+    .watch-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      inset: 0;
+      background: rgba(79, 70, 229, 0.75);
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .video-card:hover .watch-btn { opacity: 1; }
+
+    /* Text overlay */
+    .video-card p { 
+      position: absolute; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      padding: 0.5rem; 
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      font-size: 0.875rem;
+      color: #f3f4f6;
+    }
+
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
 
   <!-- Header -->
-  <header class="gradient-bg py-6 px-4 shadow-2xl sticky top-0 z-50">
+  <header class="gradient-bg py-6 px-4 shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-          <span class="text-2xl font-bold text-purple-600">SF</span>
+          <span class="text-2xl font-bold text-indigo-600">SF</span>
         </div>
         <div>
           <h1 class="text-3xl font-bold">SuperFan Studios</h1>
-          <p class="text-purple-100 text-sm">Premium Genre Content</p>
+          <p class="text-indigo-200 text-sm">Premium Genre Content</p>
         </div>
       </div>
       <nav class="hidden md:flex space-x-8 items-center">
-        <a href="#" class="hover:text-purple-200 transition-colors">Home</a>
-        <a href="#browse" class="hover:text-purple-200 transition-colors">Browse</a>
-        <a href="#interactive" class="hover:text-purple-200 transition-colors">Interactive</a>
-        <a href="#fan-shows" class="hover:text-purple-200 transition-colors">Fan Shows</a>
+        <a href="#" class="hover:text-indigo-300 transition-colors">Home</a>
+        <a href="#browse" class="hover:text-indigo-300 transition-colors">Browse</a>
+        <a href="#interactive" class="hover:text-indigo-300 transition-colors">Interactive</a>
+        <a href="#fan-shows" class="hover:text-indigo-300 transition-colors">Fan Shows</a>
         <span class="cursor-pointer">🔍</span>
         <span class="cursor-pointer">🔔</span>
         <span class="cursor-pointer">👤</span>
@@ -75,7 +111,7 @@
           Experience futuristic storytelling at its best.
         </p>
         <p class="text-sm text-gray-400 mb-4">⭐ 9.2 | 2025 | 12 Episodes</p>
-        <button class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">
+        <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">
           ▶ Play
         </button>
       </div>
@@ -90,70 +126,54 @@
     <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
     <div class="flex flex-wrap justify-between gap-12">
 
-      <!-- English Horror -->
-      <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
+      <!-- Genre Example -->
+      <div class="genre-card p-6 w-60 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">English Horror</h4>
         <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">The Haunting Whisper vs The Last Tenant</p>
-            <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>The Haunting Whisper vs The Last Tenant</p>
+            <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" class="watch-btn">Watch Now</a>
           </div>
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/iZSvXhRhj-E/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Storytime Short Horror Film</p>
-            <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>Storytime Short Horror Film</p>
+            <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
 
+      <!-- Repeat other genres similarly... -->
       <!-- Hindi Horror -->
-      <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
+      <div class="genre-card p-6 w-60 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
         <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">HUNCH (Hindi Horror Short)</p>
-            <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>HUNCH (Hindi Horror Short)</p>
+            <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" class="watch-btn">Watch Now</a>
           </div>
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/OeBDrJ7fGq0/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Pizza – Horror Short Film</p>
-            <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>Pizza – Horror Short Film</p>
+            <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
+      <div class="genre-card p-6 w-60 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">Mythology</h4>
         <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Pandora’s Box</p>
-            <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>Pandora’s Box</p>
+            <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" class="watch-btn">Watch Now</a>
           </div>
-          <div class="video-card relative rounded-lg overflow-hidden">
+          <div class="video-card">
             <img src="https://img.youtube.com/vi/g6Lay-r6txA/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Daedalus & Icarus</p>
-            <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sci-Fi Thrillers -->
-      <div class="genre-card rounded-2xl p-6 w-60 cursor-pointer">
-        <h4 class="font-semibold text-lg mb-4">Sci-Fi Thrillers</h4>
-        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
-          <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://img.youtube.com/vi/q7DRviMc2u0/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Guest (Short Film)</p>
-            <a href="https://www.youtube.com/watch?v=q7DRviMc2u0" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
-          </div>
-          <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://img.youtube.com/vi/fw4gwwS-nFI/mqdefault.jpg" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Kung Fury (Sci-Fi Action)</p>
-            <a href="https://www.youtube.com/watch?v=fw4gwwS-nFI" target="_blank" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
+            <p>Daedalus & Icarus</p>
+            <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
