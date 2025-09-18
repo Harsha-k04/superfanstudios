@@ -19,80 +19,42 @@
     .genre-card {
       position: relative;
       border-radius: 1rem;
-      /* keep dropdown visible even if it sits outside the media area */
-      overflow: visible;
-      min-height: 300px;
-      transition: transform .28s ease, box-shadow .28s ease;
-      cursor: pointer;
-      background: #0f172a; /* dark fallback while image loads */
-    }
-    .genre-card .card-media {
-      border-radius: 1rem;
       overflow: hidden;
-      height: 260px;
+      min-height: 300px;
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
     }
-    .genre-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,.5); }
+    .genre-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,.4); }
 
     /* Dark overlay over image */
     .genre-overlay {
       position: absolute; inset: 0;
       background: rgba(0,0,0,.35);
-      transition: background .25s ease;
-      border-radius: 1rem;
-      pointer-events: none;
+      transition: background .3s ease;
     }
-    .genre-card:hover .genre-overlay { background: rgba(0,0,0,.18); }
+    .genre-card:hover .genre-overlay { background: rgba(0,0,0,.2); }
 
-    /* Dropdown styling (hidden by default) */
+    /* Dropdown styling */
     .dropdown {
-      display: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: calc(100% + 8px);
-      margin: 0 auto;
-      background: #0b1220; /* slightly different dark */
-      padding: 1rem;
-      border-radius: .75rem;
-      z-index: 60;
-      gap: 1rem;
-      box-shadow: 0 10px 30px rgba(2,6,23,.6);
-      width: calc(100% + 40px); /* slightly wider */
-      transform-origin: top center;
+      @apply hidden absolute left-0 right-0 mt-2 bg-gray-900 p-4 rounded-xl z-40 gap-4;
     }
 
-    /* show on hover (desktop) and when .open added (mobile toggle) */
-    .genre-card:hover .dropdown,
-    .genre-card.open .dropdown,
-    .dropdown:hover {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      overflow-x: auto;
-    }
-
-    /* Video Card inside dropdown */
     .video-card {
       min-width: 260px;
       border-radius: .75rem;
       overflow: hidden;
       position: relative;
-      transition: transform .18s ease;
-      background: #111827;
-      flex: 0 0 auto;
+      transition: transform .2s ease;
     }
-    .video-card:hover { transform: translateY(-6px) scale(1.03); }
-
-    .video-card img { display: block; width: 100%; height: 160px; object-fit: cover; }
+    .video-card:hover { transform: scale(1.05); }
 
     .watch-btn {
       display: flex; justify-content: center; align-items: center;
       position: absolute; inset: 0;
-      background: rgba(79,70,229,.82);
-      color: #fff; font-weight: 600; font-size: . nine rem;
+      background: rgba(79,70,229,.78);
+      color: #fff; font-weight: 600; font-size: .875rem;
       border-radius: .5rem;
-      opacity: 0; transition: opacity .22s ease;
-      text-decoration: none;
+      opacity: 0; transition: opacity .25s ease;
     }
     .video-card:hover .watch-btn { opacity: 1; }
 
@@ -102,15 +64,11 @@
       background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
       font-size: .875rem; color: #f3f4f6;
     }
+  </style>
 
-    /* small helper so dropdown doesn't get clipped by parent containers */
-    section#browse { position: relative; z-index: 1; }
-
-    /* responsive tweaks */
-    @media (max-width: 768px) {
-      .video-card img { height: 140px; }
-      .dropdown { width: calc(100% + 0px); left: 0; right: 0; }
-    }
+  <!-- Tailwind utility for hover reveal -->
+  <style type="text/tailwindcss">
+    .genre-card.group:hover .dropdown { @apply flex flex-row; }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -148,8 +106,8 @@
         <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">▶ Play</button>
       </div>
       <div>
-        <img src="https://source.unsplash.com/1200x800/?cyberpunk,city,futuristic"
-             alt="Featured Show" class="rounded-2xl shadow-lg object-cover w-full h-64"/>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&auto=format&fit=crop"
+             alt="Featured Show" class="rounded-2xl shadow-lg"/>
       </div>
     </div>
   </section>
@@ -160,98 +118,89 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <!-- English Horror -->
-      <div class="genre-card group" data-genre="english-horror">
-        <div class="card-media">
-          <!-- using source.unsplash so URL won't 404; returns a suitable image for the keyword -->
-          <img src="https://source.unsplash.com/1200x800/?horror,haunted,cinematic" alt="English Horror" class="w-full h-full object-cover"/>
-        </div>
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1504271863819-d0a88207e425?w=1200&q=80&auto=format&fit=crop"
+             class="w-full h-full object-cover" alt="English Horror"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
           <h4 class="text-lg font-semibold">English Horror</h4>
         </div>
-
         <div class="dropdown">
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/65kWfQ7oXhc/hqdefault.jpg" alt="The Haunting Whisper"/>
+            <img src="https://i.ytimg.com/vi/65kWfQ7oXhc/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="The Haunting Whisper"/>
             <p>The Haunting Whisper vs The Last Tenant</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/iZSvXhRhj-E/hqdefault.jpg" alt="Storytime Short Horror"/>
+            <img src="https://i.ytimg.com/vi/iZSvXhRhj-E/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Storytime Short Horror"/>
             <p>Storytime Short Horror Film</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Hindi Horror -->
-      <div class="genre-card group" data-genre="hindi-horror">
-        <div class="card-media">
-          <img src="https://source.unsplash.com/1200x800/?horror,india,spooky" alt="Hindi Horror" class="w-full h-full object-cover"/>
-        </div>
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1628432136673-6fba9b5d1b44?w=1200&q=80&auto=format&fit=crop"
+             class="w-full h-full object-cover" alt="Hindi Horror"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
           <h4 class="text-lg font-semibold">Hindi Horror</h4>
         </div>
-
         <div class="dropdown">
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/f09YgBr7bwM/hqdefault.jpg" alt="HUNCH"/>
-            <p>HUNCH (Hindi Short)</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" rel="noopener">Watch Now</a>
+            <img src="https://i.ytimg.com/vi/f09YgBr7bwM/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="HUNCH"/>
+            <p>HUNCH (Hindi Horror Short)</p>
+            <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/OeBDrJ7fGq0/hqdefault.jpg" alt="Pizza"/>
+            <img src="https://i.ytimg.com/vi/OeBDrJ7fGq0/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Pizza – Horror Short Film"/>
             <p>Pizza – Horror Short Film</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card group" data-genre="mythology">
-        <div class="card-media">
-          <img src="https://source.unsplash.com/1200x800/?mythology,temple,statue,ancient" alt="Mythology" class="w-full h-full object-cover"/>
-        </div>
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1585647345314-1ff64d18e2ec?w=1200&q=80&auto=format&fit=crop"
+             class="w-full h-full object-cover" alt="Mythology"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
           <h4 class="text-lg font-semibold">Mythology</h4>
         </div>
-
         <div class="dropdown">
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/rNk-zV2T7bI/hqdefault.jpg" alt="Pandora’s Box"/>
+            <img src="https://i.ytimg.com/vi/rNk-zV2T7bI/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Pandora’s Box"/>
             <p>Pandora’s Box</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/g6Lay-r6txA/hqdefault.jpg" alt="Daedalus & Icarus"/>
+            <img src="https://i.ytimg.com/vi/g6Lay-r6txA/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Daedalus & Icarus"/>
             <p>Daedalus & Icarus</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Sci-Fi -->
-      <div class="genre-card group" data-genre="sci-fi">
-        <div class="card-media">
-          <img src="https://source.unsplash.com/1200x800/?sci-fi,space,futuristic" alt="Sci-Fi" class="w-full h-full object-cover"/>
-        </div>
+      <div class="genre-card group">
+        <img src="https://images.unsplash.com/photo-1520409364220-743c14adabd7?w=1200&q=80&auto=format&fit=crop"
+             class="w-full h-full object-cover" alt="Sci-Fi"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
           <h4 class="text-lg font-semibold">Sci-Fi</h4>
         </div>
-
         <div class="dropdown">
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/IzO1mCAVyMw/hqdefault.jpg" alt="Plurality"/>
+            <img src="https://i.ytimg.com/vi/IzO1mCAVyMw/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Plurality"/>
             <p>Plurality (Sci-Fi Short)</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=IzO1mCAVyMw" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=IzO1mCAVyMw" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
           <div class="video-card">
-            <img src="https://i.ytimg.com/vi/6hB3S9bIaco/hqdefault.jpg" alt="Galactic Odyssey"/>
+            <img src="https://i.ytimg.com/vi/6hB3S9bIaco/hqdefault.jpg" class="w-full h-40 object-cover rounded-lg" alt="Galactic Odyssey"/>
             <p>Galactic Odyssey</p>
-            <a class="watch-btn" href="https://www.youtube.com/watch?v=6hB3S9bIaco" target="_blank" rel="noopener">Watch Now</a>
+            <a href="https://www.youtube.com/watch?v=6hB3S9bIaco" target="_blank" rel="noopener" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
@@ -279,35 +228,5 @@
   <footer class="bg-gray-950 py-10 px-6 mt-12 text-center text-gray-400">
     <p>&copy; 2025 SuperFan Studios. All rights reserved.</p>
   </footer>
-
-  <!-- Small JS to enable tap-to-open on touch/mobile and to close when clicking outside -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.genre-card');
-
-      cards.forEach(card => {
-        // Toggle open when clicking the card (but don't toggle when clicking links inside dropdown)
-        card.addEventListener('click', (e) => {
-          if (e.target.closest('a')) return;            // don't toggle if a link was clicked
-          if (e.target.closest('.dropdown')) return;   // don't toggle when clicking inside dropdown
-          card.classList.toggle('open');
-        });
-      });
-
-      // Close open cards when clicking anywhere else
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.genre-card')) {
-          document.querySelectorAll('.genre-card.open').forEach(c => c.classList.remove('open'));
-        }
-      });
-
-      // Optional: close open dropdowns on Escape
-      document.addEventListener('keydown', (ev) => {
-        if (ev.key === 'Escape') {
-          document.querySelectorAll('.genre-card.open').forEach(c => c.classList.remove('open'));
-        }
-      });
-    });
-  </script>
 </body>
 </html>
