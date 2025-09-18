@@ -2,161 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Superfan Studios - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SuperFan Studios - Premium Genre Content</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0b0c10;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      background: rgba(15, 20, 30, 0.9);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      color: #66fcf1;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    nav a:hover { color: #66fcf1; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(135deg, #6e00ff, #ff0077);
-      animation: fadeIn 1s ease-in;
-    }
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-    .hero p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    .hero .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 32px;
-      background: #fff;
-      color: #6e00ff;
-      font-weight: 600;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .hero .btn:hover { background: #ff0077; color: #fff; }
-
-    /* Categories Section */
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 80px 40px;
-    }
-    .card {
-      background: #1f2833;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      background: linear-gradient(135deg, #45a29e, #66fcf1);
-      color: #0b0c10;
-    }
-    .card h3 { margin-top: 0; font-size: 22px; color: #66fcf1; }
-    .card:hover h3 { color: #0b0c10; }
-    .card a {
-      display: block;
-      margin: 10px 0;
-      color: inherit;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    .card a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #bbb;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .genre-card { background: linear-gradient(145deg, #1f2937, #374151); border: 1px solid #4b5563; }
+    .play-button { transition: all 0.3s ease; }
+    .play-button:hover { transform: scale(1.1); }
+    .carousel::-webkit-scrollbar { display: none; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Superfan Studios</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-    </nav>
+<body class="bg-gray-900 text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="gradient-bg py-6 px-4 shadow-2xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+          <span class="text-2xl font-bold text-purple-600">SF</span>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold">SuperFan Studios</h1>
+          <p class="text-purple-100 text-sm">Premium Genre Content</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8 items-center">
+        <a href="#" class="hover:text-purple-200 transition-colors">Home</a>
+        <a href="#browse" class="hover:text-purple-200 transition-colors">Browse</a>
+        <a href="#interactive" class="hover:text-purple-200 transition-colors">Interactive</a>
+        <a href="#fan-shows" class="hover:text-purple-200 transition-colors">Fan Shows</a>
+        <span class="cursor-pointer">🔍</span>
+        <span class="cursor-pointer">🔔</span>
+        <span class="cursor-pointer">👤</span>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Connecting Fans with Stories They Love</h2>
-    <p>Discover exciting content from Horror, Mythology, Music, Tech, and more — all curated by Superfan Studios.</p>
-    <a href="about.html" class="btn">Learn More</a>
-  </section>
-
-  <section class="categories">
-    <div class="card">
-      <h3>English Horror</h3>
-      <a href="https://youtube.com/" target="_blank">Channel 1</a>
-      <a href="https://youtube.com/" target="_blank">Channel 2</a>
-    </div>
-    <div class="card">
-      <h3>Hindi Horror</h3>
-      <a href="https://youtube.com/" target="_blank">Channel 1</a>
-      <a href="https://youtube.com/" target="_blank">Channel 2</a>
-    </div>
-    <div class="card">
-      <h3>Mythology</h3>
-      <a href="https://youtube.com/" target="_blank">Channel 1</a>
-      <a href="https://youtube.com/" target="_blank">Channel 2</a>
-    </div>
-    <div class="card">
-      <h3>Others</h3>
-      <a href="https://youtube.com/" target="_blank">Music</a>
-      <a href="https://youtube.com/" target="_blank">Tech</a>
-      <a href="https://youtube.com/" target="_blank">Comedy</a>
+  <!-- Featured Show Hero -->
+  <section class="relative bg-gray-800 py-20 px-6 text-left">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">The Digital Frontier</h2>
+        <p class="text-gray-300 mb-6">
+          A thrilling dive into the world where humans and AI coexist. 
+          Experience futuristic storytelling at its best.
+        </p>
+        <p class="text-sm text-gray-400 mb-4">⭐ 9.2 | 2025 | 12 Episodes</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">
+          ▶ Play
+        </button>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/500x300" alt="Featured Show" class="rounded-2xl shadow-lg">
+      </div>
     </div>
   </section>
 
-  <footer>
-    © 2025 Superfan Studios. All rights reserved.
+  <!-- Personalized for You -->
+  <section id="browse" class="py-16 px-6">
+    <h3 class="text-3xl font-bold mb-8">✨ Personalized for You</h3>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="genre-card rounded-2xl p-6 card-hover">💖 Quantum Hearts</div>
+      <div class="genre-card rounded-2xl p-6 card-hover">💭 Digital Dreams</div>
+      <div class="genre-card rounded-2xl p-6 card-hover">🤖 Synthetic Souls</div>
+      <div class="genre-card rounded-2xl p-6 card-hover">📖 AI Chronicles</div>
+    </div>
+  </section>
+
+  <!-- Interactive Experiences -->
+  <section id="interactive" class="py-16 px-6 bg-gray-800">
+    <h3 class="text-3xl font-bold mb-8">🎮 Interactive Experiences</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="genre-card rounded-2xl p-6 card-hover">🕹️ The AI Maze <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
+      <div class="genre-card rounded-2xl p-6 card-hover">📡 Virtual Odyssey <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
+      <div class="genre-card rounded-2xl p-6 card-hover">🧩 Cyber Choices <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
+    </div>
+  </section>
+
+  <!-- Placeholder for extra sections -->
+  <section id="fan-shows" class="py-16 px-6">
+    <h3 class="text-3xl font-bold mb-8">🌟 Fan Shows</h3>
+    <p class="text-gray-400">Coming Soon...</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-10 px-6 mt-12 text-center text-gray-400">
+    <p>&copy; 2025 SuperFan Studios. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
