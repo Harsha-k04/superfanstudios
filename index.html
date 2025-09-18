@@ -24,7 +24,8 @@
 
     /* Dropdown Videos */
     .dropdown { 
-      flex-direction: row !important; 
+      display: flex;          /* ✅ ensures group-hover works */
+      flex-direction: row; 
       overflow-x: auto; 
       gap: 1rem; 
       width: max-content; 
@@ -191,7 +192,7 @@
     <div class="flex justify-center items-center gap-12 flex-wrap">
       <!-- ElevenLabs Logo -->
       <a href="https://elevenlabs.io" target="_blank" class="transition-transform hover:scale-105">
-        <img src="https://seeklogo.com/images/E/elevenlabs-logo-4E3A24BBD0-seeklogo.com.png" 
+        <img src="https://asset.brandfetch.io/idIqZWxK1Y/idw4HEnmVD.svg" 
              alt="ElevenLabs Logo" 
              class="h-16">
       </a>
