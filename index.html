@@ -19,6 +19,8 @@
       border: 1px solid #374151;
       position: relative; 
       transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      overflow: hidden;
+      z-index: 10;
     }
     .genre-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
@@ -34,7 +36,7 @@
       top: 100%; 
       left: 0; 
       margin-top: 0.5rem;
-      z-index: 30;
+      z-index: 50;
     }
     .genre-card:hover .dropdown,
     .dropdown:hover { 
@@ -129,14 +131,13 @@
   </section>
 
   <!-- Browse Genres -->
-  <!-- Browse Genres -->
 <section id="browse" class="py-16 px-6">
   <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
     <!-- English Horror -->
     <div class="genre-card group relative cursor-pointer overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1603302576837-3753c0e9f1d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" 
+      <img src="https://images.unsplash.com/photo-1549887534-3db1bd59dcca?auto=format&fit=crop&w=1200&q=80" 
            alt="English Horror" class="absolute inset-0 w-full h-full object-cover opacity-70">
       <div class="relative p-6 z-10">
         <h4 class="font-semibold text-lg mb-4">English Horror</h4>
@@ -157,7 +158,7 @@
 
     <!-- Hindi Horror -->
     <div class="genre-card group relative cursor-pointer overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1614852205671-f0fadc1bf006?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" 
+      <img src="https://images.unsplash.com/photo-1601991925712-3b3f8c1105ad?auto=format&fit=crop&w=1200&q=80" 
            alt="Hindi Horror" class="absolute inset-0 w-full h-full object-cover opacity-70">
       <div class="relative p-6 z-10">
         <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
@@ -178,7 +179,7 @@
 
     <!-- Mythology -->
     <div class="genre-card group relative cursor-pointer overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1601987077412-6f746e6b6c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" 
+      <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=1200&q=80" 
            alt="Mythology" class="absolute inset-0 w-full h-full object-cover opacity-70">
       <div class="relative p-6 z-10">
         <h4 class="font-semibold text-lg mb-4">Mythology</h4>
@@ -199,7 +200,7 @@
 
     <!-- Sci-Fi -->
     <div class="genre-card group relative cursor-pointer overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1581092919534-9f46d4a1bc2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60" 
+      <img src="https://images.unsplash.com/photo-1581091215367-59ab6a2d89ec?auto=format&fit=crop&w=1200&q=80" 
            alt="Sci-Fi" class="absolute inset-0 w-full h-full object-cover opacity-70">
       <div class="relative p-6 z-10">
         <h4 class="font-semibold text-lg mb-4">Sci-Fi</h4>
@@ -220,7 +221,6 @@
 
   </div>
 </section>
-
 
   <!-- Fan Shows -->
   <section id="fan-shows" class="py-16 px-6">
