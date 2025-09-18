@@ -24,19 +24,26 @@
 
     /* Dropdown Videos */
     .dropdown { 
-      display: flex;          /* ✅ ensures group-hover works */
+      display: none;          /* hidden by default */
       flex-direction: row; 
-      overflow-x: auto; 
       gap: 1rem; 
-      width: max-content; 
-      scrollbar-width: none; 
-      padding-bottom: 0.5rem;
+      padding: 1rem; 
+      background: #1f2937; 
+      border-radius: 0.75rem;
+      position: absolute;
+      top: 100%; 
+      left: 0; 
+      margin-top: 0.5rem;
+      z-index: 30;
     }
-    .dropdown::-webkit-scrollbar { display: none; }
+    .genre-card:hover .dropdown,
+    .dropdown:hover { 
+      display: flex;          /* stays visible even when hovering inside dropdown */
+    }
 
     /* Video Card */
     .video-card { 
-      min-width: 200px; 
+      min-width: 180px; 
       flex-shrink: 0; 
       border-radius: 0.75rem; 
       overflow: hidden; 
@@ -124,12 +131,12 @@
   <!-- Browse Genres -->
   <section id="browse" class="py-16 px-6">
     <h3 class="text-3xl font-bold mb-10">Browse by Genre</h3>
-    <div class="flex flex-wrap justify-between gap-12">
+    <div class="flex flex-wrap gap-8">
 
       <!-- English Horror -->
-      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
+      <div class="genre-card group relative p-6 w-56 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">English Horror</h4>
-        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>The Haunting Whisper vs The Last Tenant</p>
@@ -144,9 +151,9 @@
       </div>
 
       <!-- Hindi Horror -->
-      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
+      <div class="genre-card group relative p-6 w-56 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
-        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>HUNCH (Hindi Horror Short)</p>
@@ -161,9 +168,9 @@
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
+      <div class="genre-card group relative p-6 w-56 cursor-pointer">
         <h4 class="font-semibold text-lg mb-4">Mythology</h4>
-        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>Pandora’s Box</p>
@@ -173,6 +180,23 @@
             <img src="https://img.youtube.com/vi/g6Lay-r6txA/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>Daedalus & Icarus</p>
             <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sci-Fi -->
+      <div class="genre-card group relative p-6 w-56 cursor-pointer">
+        <h4 class="font-semibold text-lg mb-4">Sci-Fi</h4>
+        <div class="dropdown">
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/9pKcO3Yf0uw/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p>The Singularity Event</p>
+            <a href="https://www.youtube.com/watch?v=9pKcO3Yf0uw" target="_blank" class="watch-btn">Watch Now</a>
+          </div>
+          <div class="video-card">
+            <img src="https://img.youtube.com/vi/6hB3S9bIaco/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p>Galactic Odyssey</p>
+            <a href="https://www.youtube.com/watch?v=6hB3S9bIaco" target="_blank" class="watch-btn">Watch Now</a>
           </div>
         </div>
       </div>
@@ -192,7 +216,7 @@
     <div class="flex justify-center items-center gap-12 flex-wrap">
       <!-- ElevenLabs Logo -->
       <a href="https://elevenlabs.io" target="_blank" class="transition-transform hover:scale-105">
-        <img src="https://asset.brandfetch.io/idIqZWxK1Y/idw4HEnmVD.svg" 
+        <img src="https://cdn.worldvectorlogo.com/logos/elevenlabs-1.svg" 
              alt="ElevenLabs Logo" 
              class="h-16">
       </a>
