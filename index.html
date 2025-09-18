@@ -72,7 +72,6 @@
       font-size: 0.875rem;
       color: #f3f4f6;
     }
-
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -127,9 +126,9 @@
     <div class="flex flex-wrap justify-between gap-12">
 
       <!-- English Horror -->
-      <div class="genre-card p-6 w-60 cursor-pointer">
+      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
         <h4 class="font-semibold text-lg mb-4">English Horror</h4>
-        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>The Haunting Whisper vs The Last Tenant</p>
@@ -144,9 +143,9 @@
       </div>
 
       <!-- Hindi Horror -->
-      <div class="genre-card p-6 w-60 cursor-pointer">
+      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
         <h4 class="font-semibold text-lg mb-4">Hindi Horror</h4>
-        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>HUNCH (Hindi Horror Short)</p>
@@ -161,9 +160,9 @@
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card p-6 w-60 cursor-pointer">
+      <div class="genre-card group relative p-6 w-60 cursor-pointer overflow-visible">
         <h4 class="font-semibold text-lg mb-4">Mythology</h4>
-        <div class="dropdown hidden absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
+        <div class="dropdown hidden group-hover:flex absolute top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 z-20">
           <div class="video-card">
             <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
             <p>Pandora’s Box</p>
@@ -184,6 +183,19 @@
   <section id="fan-shows" class="py-16 px-6">
     <h3 class="text-3xl font-bold mb-8">Fan Shows</h3>
     <p class="text-gray-400">Coming Soon...</p>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="py-16 px-6 bg-gray-800">
+    <h3 class="text-3xl font-bold mb-10 text-center">Our Partners</h3>
+    <div class="flex justify-center items-center gap-12 flex-wrap">
+      <!-- ElevenLabs Logo -->
+      <a href="https://elevenlabs.io" target="_blank" class="transition-transform hover:scale-105">
+        <img src="https://seeklogo.com/images/E/elevenlabs-logo-4E3A24BBD0-seeklogo.com.png" 
+             alt="ElevenLabs Logo" 
+             class="h-16">
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
