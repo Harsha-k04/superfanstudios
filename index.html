@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -36,7 +36,19 @@
 
     /* Dropdown styling */
     .dropdown {
-      @apply hidden absolute left-0 right-0 mt-2 bg-gray-900 p-4 rounded-xl z-40 gap-4;
+      display: none;
+      position: absolute; left: 0; right: 0; bottom: 0;
+      background: rgba(17,17,17,0.95);
+      padding: 1rem;
+      border-radius: 0 0 1rem 1rem;
+      z-index: 40;
+      gap: 1rem;
+      flex-direction: row;
+    }
+
+    /* FIX: show dropdown on hover */
+    .genre-card:hover .dropdown {
+      display: flex;
     }
 
     .video-card {
@@ -55,6 +67,7 @@
       color: #fff; font-weight: 600; font-size: .875rem;
       border-radius: .5rem;
       opacity: 0; transition: opacity .25s ease;
+      text-decoration: none;
     }
     .video-card:hover .watch-btn { opacity: 1; }
 
@@ -64,11 +77,6 @@
       background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
       font-size: .875rem; color: #f3f4f6;
     }
-  </style>
-
-  <!-- Tailwind utility for hover reveal -->
-  <style type="text/tailwindcss">
-    .genre-card.group:hover .dropdown { @apply flex flex-row; }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -106,7 +114,7 @@
         <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">▶ Play</button>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&auto=format&fit=crop"
+        <img src="https://source.unsplash.com/1200x800/?futuristic,ai"
              alt="Featured Show" class="rounded-2xl shadow-lg"/>
       </div>
     </div>
@@ -118,8 +126,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <!-- English Horror -->
-      <div class="genre-card group">
-        <img src="https://images.unsplash.com/photo-1504271863819-d0a88207e425?w=1200&q=80&auto=format&fit=crop"
+      <div class="genre-card">
+        <img src="https://source.unsplash.com/600x400/?horror,night"
              class="w-full h-full object-cover" alt="English Horror"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
@@ -140,8 +148,8 @@
       </div>
 
       <!-- Hindi Horror -->
-      <div class="genre-card group">
-        <img src="https://images.unsplash.com/photo-1628432136673-6fba9b5d1b44?w=1200&q=80&auto=format&fit=crop"
+      <div class="genre-card">
+        <img src="https://source.unsplash.com/600x400/?horror,ghost"
              class="w-full h-full object-cover" alt="Hindi Horror"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
@@ -162,8 +170,8 @@
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card group">
-        <img src="https://images.unsplash.com/photo-1585647345314-1ff64d18e2ec?w=1200&q=80&auto=format&fit=crop"
+      <div class="genre-card">
+        <img src="https://source.unsplash.com/600x400/?mythology,ancient"
              class="w-full h-full object-cover" alt="Mythology"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
@@ -184,8 +192,8 @@
       </div>
 
       <!-- Sci-Fi -->
-      <div class="genre-card group">
-        <img src="https://images.unsplash.com/photo-1520409364220-743c14adabd7?w=1200&q=80&auto=format&fit=crop"
+      <div class="genre-card">
+        <img src="https://source.unsplash.com/600x400/?scifi,futuristic"
              class="w-full h-full object-cover" alt="Sci-Fi"/>
         <div class="genre-overlay"></div>
         <div class="absolute bottom-6 left-6 z-10">
