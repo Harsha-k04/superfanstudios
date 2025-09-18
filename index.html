@@ -10,8 +10,9 @@
     body { font-family: 'Inter', sans-serif; }
 
     .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .genre-card { background: linear-gradient(145deg, #1f2937, #374151); border: 1px solid #4b5563; }
+    .genre-card { background: linear-gradient(145deg, #1f2937, #374151); border: 1px solid #4b5563; position: relative; }
     .video-card:hover .watch-btn { display: block; }
+    .watch-btn { display: none; }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -60,75 +61,75 @@
     </div>
   </section>
 
-  <!-- Browse Genres (Hover Reveal) -->
+  <!-- Browse Genres -->
   <section id="browse" class="py-16 px-6">
     <h3 class="text-3xl font-bold mb-10">✨ Browse by Genre</h3>
     <div class="grid md:grid-cols-4 gap-8">
 
       <!-- English Horror -->
-      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+      <div class="genre-card rounded-2xl p-6 group cursor-pointer">
         👻 English Horror
-        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
           <div class="video-card relative mb-4 rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">The Haunted Asylum</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/65kWfQ7oXhc/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">The Haunting Whisper vs The Last Tenant</p>
+            <a href="https://www.youtube.com/watch?v=65kWfQ7oXhc" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
           <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">The Smiling Man</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/iZSvXhRhj-E/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Storytime Short Horror Film</p>
+            <a href="https://www.youtube.com/watch?v=iZSvXhRhj-E" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Hindi Horror -->
-      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+      <div class="genre-card rounded-2xl p-6 group cursor-pointer">
         😱 Hindi Horror
-        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
           <div class="video-card relative mb-4 rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Woh Kaun Thi?</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/f09YgBr7bwM/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">HUNCH (Hindi Horror Short)</p>
+            <a href="https://www.youtube.com/watch?v=f09YgBr7bwM" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
           <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Bhoot Bangla</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/OeBDrJ7fGq0/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Pizza – Horror Short Film</p>
+            <a href="https://www.youtube.com/watch?v=OeBDrJ7fGq0" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Mythology -->
-      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+      <div class="genre-card rounded-2xl p-6 group cursor-pointer">
         📜 Mythology
-        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
           <div class="video-card relative mb-4 rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Mythology" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">The Curse of Ravana</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/rNk-zV2T7bI/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Pandora’s Box</p>
+            <a href="https://www.youtube.com/watch?v=rNk-zV2T7bI" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
           <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Mythology" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Tales of Kali</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/g6Lay-r6txA/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Daedalus & Icarus</p>
+            <a href="https://www.youtube.com/watch?v=g6Lay-r6txA" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
         </div>
       </div>
 
       <!-- Sci-Fi Thrillers -->
-      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+      <div class="genre-card rounded-2xl p-6 group cursor-pointer">
         🚀 Sci-Fi Thrillers
-        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-72 z-20">
           <div class="video-card relative mb-4 rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Sci-Fi" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">Time Loop Paradox</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/q7DRviMc2u0/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Guest (Short Film)</p>
+            <a href="https://www.youtube.com/watch?v=q7DRviMc2u0" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
           <div class="video-card relative rounded-lg overflow-hidden">
-            <img src="https://via.placeholder.com/250x140?text=Sci-Fi" class="w-full h-36 object-cover">
-            <p class="text-sm p-2">AI Gone Wrong</p>
-            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+            <img src="https://img.youtube.com/vi/fw4gwwS-nFI/mqdefault.jpg" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Kung Fury (Sci-Fi Action)</p>
+            <a href="https://www.youtube.com/watch?v=fw4gwwS-nFI" class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-white px-3 py-1 rounded-lg">Watch Now</a>
           </div>
         </div>
       </div>
