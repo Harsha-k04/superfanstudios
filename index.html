@@ -10,12 +10,8 @@
     body { font-family: 'Inter', sans-serif; }
 
     .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .genre-card { background: linear-gradient(145deg, #1f2937, #374151); border: 1px solid #4b5563; }
-    .play-button { transition: all 0.3s ease; }
-    .play-button:hover { transform: scale(1.1); }
-    .carousel::-webkit-scrollbar { display: none; }
+    .video-card:hover .watch-btn { display: block; }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
@@ -64,77 +60,79 @@
     </div>
   </section>
 
-  <!-- Personalized for You -->
+  <!-- Browse Genres (Hover Reveal) -->
   <section id="browse" class="py-16 px-6">
-    <h3 class="text-3xl font-bold mb-8">✨ Personalized for You</h3>
+    <h3 class="text-3xl font-bold mb-10">✨ Browse by Genre</h3>
     <div class="grid md:grid-cols-4 gap-8">
-      <div class="genre-card rounded-2xl p-6 card-hover">💖 Quantum Hearts</div>
-      <div class="genre-card rounded-2xl p-6 card-hover">💭 Digital Dreams</div>
-      <div class="genre-card rounded-2xl p-6 card-hover">🤖 Synthetic Souls</div>
-      <div class="genre-card rounded-2xl p-6 card-hover">📖 AI Chronicles</div>
-    </div>
-  </section>
 
-  <!-- Interactive Experiences -->
-  <section id="interactive" class="py-16 px-6 bg-gray-800">
-    <h3 class="text-3xl font-bold mb-8">🎮 Interactive Experiences</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="genre-card rounded-2xl p-6 card-hover">🕹️ The AI Maze <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
-      <div class="genre-card rounded-2xl p-6 card-hover">📡 Virtual Odyssey <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
-      <div class="genre-card rounded-2xl p-6 card-hover">🧩 Cyber Choices <span class="ml-2 text-purple-400 text-sm">Interactive</span></div>
-    </div>
-  </section>
-
-  <!-- Video Categories -->
-  <section id="videos" class="py-16 px-6">
-    <h3 class="text-3xl font-bold mb-10">📺 Watch Our Videos</h3>
-
-    <!-- English Horror -->
-    <div class="mb-12">
-      <h4 class="text-2xl font-semibold mb-6">👻 English Horror</h4>
-      <div class="grid md:grid-cols-3 gap-8">
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/BoCofYsU6HA"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/65kWfQ7oXhc"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/Op16crlEONU"
-          frameborder="0" allowfullscreen></iframe>
+      <!-- English Horror -->
+      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+        👻 English Horror
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+          <div class="video-card relative mb-4 rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">The Haunted Asylum</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+          <div class="video-card relative rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">The Smiling Man</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Hindi Horror -->
-    <div class="mb-12">
-      <h4 class="text-2xl font-semibold mb-6">😱 Hindi Horror</h4>
-      <div class="grid md:grid-cols-3 gap-8">
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/f09YgBr7bwM"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/f09YgBr7bwM"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/f09YgBr7bwM"
-          frameborder="0" allowfullscreen></iframe>
+      <!-- Hindi Horror -->
+      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+        😱 Hindi Horror
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+          <div class="video-card relative mb-4 rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Woh Kaun Thi?</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+          <div class="video-card relative rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Horror" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Bhoot Bangla</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Mythology -->
-    <div>
-      <h4 class="text-2xl font-semibold mb-6">📜 Mythology</h4>
-      <div class="grid md:grid-cols-3 gap-8">
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/4M-4M4LyUB0"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/bVt3jAlhV8g"
-          frameborder="0" allowfullscreen></iframe>
-        <iframe class="rounded-2xl shadow-lg w-full h-64"
-          src="https://www.youtube.com/embed/-HdGukCgWC0"
-          frameborder="0" allowfullscreen></iframe>
+      <!-- Mythology -->
+      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+        📜 Mythology
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+          <div class="video-card relative mb-4 rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Mythology" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">The Curse of Ravana</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+          <div class="video-card relative rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Mythology" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Tales of Kali</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Sci-Fi Thrillers -->
+      <div class="genre-card rounded-2xl p-6 relative group cursor-pointer">
+        🚀 Sci-Fi Thrillers
+        <div class="absolute hidden group-hover:block top-full mt-4 left-0 bg-gray-800 rounded-xl p-4 w-64 z-20">
+          <div class="video-card relative mb-4 rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Sci-Fi" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">Time Loop Paradox</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+          <div class="video-card relative rounded-lg overflow-hidden">
+            <img src="https://via.placeholder.com/250x140?text=Sci-Fi" class="w-full h-36 object-cover">
+            <p class="text-sm p-2">AI Gone Wrong</p>
+            <div class="watch-btn absolute bottom-2 left-1/2 -translate-x-1/2 bg-purple-500 text-black px-3 py-1 rounded-lg hidden">Watch Now</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
