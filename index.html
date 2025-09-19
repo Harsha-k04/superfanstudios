@@ -31,6 +31,7 @@
       position: absolute; inset: 0;
       background: rgba(0,0,0,.35);
       transition: background .3s ease;
+      z-index: 10;
     }
     .genre-card:hover .genre-overlay { background: rgba(0,0,0,.2); }
 
@@ -41,15 +42,11 @@
       background: rgba(17,17,17,0.95);
       padding: 1rem;
       border-radius: 0 0 1rem 1rem;
-      z-index: 40;
+      z-index: 30;
       gap: 1rem;
       flex-direction: row;
     }
-
-    /* FIX: show dropdown on hover */
-    .genre-card:hover .dropdown {
-      display: flex;
-    }
+    .genre-card:hover .dropdown { display: flex; }
 
     .video-card {
       min-width: 260px;
@@ -114,7 +111,7 @@
         <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">▶ Play</button>
       </div>
       <div>
-        <img src="https://source.unsplash.com/1200x800/?futuristic,ai"
+        <img src="https://images.unsplash.com/photo-1664575599736-2958d94b9bc4?w=1200&h=800&fit=crop&auto=format&q=80"
              alt="Featured Show" class="rounded-2xl shadow-lg"/>
       </div>
     </div>
@@ -127,10 +124,10 @@
 
       <!-- English Horror -->
       <div class="genre-card">
-        <img src="https://source.unsplash.com/600x400/?horror,night"
-             class="w-full h-full object-cover" alt="English Horror"/>
+        <img src="https://images.unsplash.com/photo-1504271863819-d0a88207e425?w=600&h=400&fit=crop&auto=format&q=80"
+             class="absolute inset-0 w-full h-full object-cover" alt="English Horror"/>
         <div class="genre-overlay"></div>
-        <div class="absolute bottom-6 left-6 z-10">
+        <div class="absolute bottom-6 left-6 z-20">
           <h4 class="text-lg font-semibold">English Horror</h4>
         </div>
         <div class="dropdown">
@@ -149,10 +146,10 @@
 
       <!-- Hindi Horror -->
       <div class="genre-card">
-        <img src="https://source.unsplash.com/600x400/?horror,ghost"
-             class="w-full h-full object-cover" alt="Hindi Horror"/>
+        <img src="https://images.unsplash.com/photo-1608889175119-66c2a77e4218?w=600&h=400&fit=crop&auto=format&q=80"
+             class="absolute inset-0 w-full h-full object-cover" alt="Hindi Horror"/>
         <div class="genre-overlay"></div>
-        <div class="absolute bottom-6 left-6 z-10">
+        <div class="absolute bottom-6 left-6 z-20">
           <h4 class="text-lg font-semibold">Hindi Horror</h4>
         </div>
         <div class="dropdown">
@@ -171,10 +168,10 @@
 
       <!-- Mythology -->
       <div class="genre-card">
-        <img src="https://source.unsplash.com/600x400/?mythology,ancient"
-             class="w-full h-full object-cover" alt="Mythology"/>
+        <img src="https://images.unsplash.com/photo-1619028776390-7706d6e63b3a?w=600&h=400&fit=crop&auto=format&q=80"
+             class="absolute inset-0 w-full h-full object-cover" alt="Mythology"/>
         <div class="genre-overlay"></div>
-        <div class="absolute bottom-6 left-6 z-10">
+        <div class="absolute bottom-6 left-6 z-20">
           <h4 class="text-lg font-semibold">Mythology</h4>
         </div>
         <div class="dropdown">
@@ -193,10 +190,10 @@
 
       <!-- Sci-Fi -->
       <div class="genre-card">
-        <img src="https://source.unsplash.com/600x400/?scifi,futuristic"
-             class="w-full h-full object-cover" alt="Sci-Fi"/>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&auto=format&q=80"
+             class="absolute inset-0 w-full h-full object-cover" alt="Sci-Fi"/>
         <div class="genre-overlay"></div>
-        <div class="absolute bottom-6 left-6 z-10">
+        <div class="absolute bottom-6 left-6 z-20">
           <h4 class="text-lg font-semibold">Sci-Fi</h4>
         </div>
         <div class="dropdown">
