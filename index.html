@@ -67,6 +67,9 @@
       opacity: 0;
       transform: translateY(-6px);
       transition: all .28s cubic-bezier(.2,.9,.2,1);
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      min-width: 520px;
     }
 
     /* Reveal on hover (desktop) or when parent has class .open (mobile toggle) */
@@ -78,6 +81,7 @@
     }
 
     .video-card {
+      flex: 1 1 50%;
       min-width: 240px;
       max-width: 260px;
       border-radius: .75rem;
@@ -85,7 +89,7 @@
       position: relative;
       transition: transform .18s ease;
       background: #111;
-      flex-shrink: 0;
+      
     }
     .video-card:hover { transform: translateY(-6px); }
 
