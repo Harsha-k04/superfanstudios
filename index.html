@@ -67,9 +67,10 @@
       opacity: 0;
       transform: translateY(-6px);
       transition: all .28s cubic-bezier(.2,.9,.2,1);
-      flex-wrap: nowrap;
+      flex-wrap: wrap;      /* allow wrapping */
       justify-content: flex-start;
-      min-width: 520px;
+      width: 100%;          /* stretch full width */
+      min-width: unset;     /* remove hard limit */
     }
 
     /* Reveal on hover (desktop) or when parent has class .open (mobile toggle) */
@@ -81,15 +82,14 @@
     }
 
     .video-card {
-      flex: 1 1 50%;
+      flex: 1 1 calc(50% - 1rem); /* two per row */
       min-width: 240px;
-      max-width: 260px;
+      max-width: 100%;
       border-radius: .75rem;
       overflow: hidden;
       position: relative;
       transition: transform .18s ease;
       background: #111;
-      
     }
     .video-card:hover { transform: translateY(-6px); }
 
@@ -151,7 +151,7 @@
     </div>
   </header>
 
-  <!-- Featured: Digital Frontier (uses your images/scifi.jpg) -->
+  <!-- Featured: Digital Frontier -->
   <section class="relative bg-gray-800 py-20 px-6 text-left">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -161,8 +161,7 @@
         <button class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-lg font-semibold transition-all shadow-lg">▶ Play</button>
       </div>
       <div>
-        <!-- make sure images/scifi.jpg exists -->
-       <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&auto=format&q=80" alt="Digital Frontier" class="rounded-2xl shadow-lg w-full h-[320px] object-cover"/>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&auto=format&q=80" alt="Digital Frontier" class="rounded-2xl shadow-lg w-full h-[320px] object-cover"/>
       </div>
     </div>
   </section>
@@ -299,23 +298,42 @@
 
   <!-- Small JS: toggle dropdown on touch/click (mobile) -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.genre-block').forEach(block => {
-        block.addEventListener('click', (e) => {
-          // if clicked a link, do nothing
-          if (e.target.closest('a')) return;
-          // toggle open class (useful for touch screens)
-          block.classList.toggle('open');
-        });
-      });
+    const API_KEY = "AIzaSyD844TSTfYIu_Cx8iJfOISmzrJj9aZy0UA"; // Replace with your key
 
-      // optional: close dropdowns when clicking outside (mobile)
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.genre-block')) {
-          document.querySelectorAll('.genre-block.open').forEach(b => b.classList.remove('open'));
-        }
+    async function fetchVideos(query) {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=6&key=${API_KEY}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return data.items || [];
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".genre-block").forEach(block => {
+        const dropdown = block.querySelector(".dropdown");
+        const query = block.getAttribute("data-query");
+
+        block.querySelector(".genre-card").addEventListener("click", async () => {
+          // Toggle open
+          block.classList.toggle("open");
+
+          // If already loaded, don’t fetch again
+          if (dropdown.dataset.loaded) return;
+
+          // Fetch and render
+          const videos = await fetchVideos(query);
+          dropdown.innerHTML = videos.map(v => `
+            <div class="video-card">
+              <img src="${v.snippet.thumbnails.medium.url}" alt="${v.snippet.title}" />
+              <p>${v.snippet.title}</p>
+              <a class="watch-btn" href="https://www.youtube.com/watch?v=${v.id.videoId}" target="_blank">Watch Now</a>
+            </div>
+          `).join("");
+
+          dropdown.dataset.loaded = true;
+        });
       });
     });
   </script>
 </body>
 </html>
+
