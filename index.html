@@ -174,7 +174,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
         <!-- Genre block 1: English Horror -->
-        <div class="genre-block">
+        <div class="genre-block" data-query="English Horror">
           <div class="genre-card">
             <img src="images/english_horror.jpg" alt="English Horror" />
             <div class="genre-overlay"></div>
@@ -197,7 +197,7 @@
         </div>
 
         <!-- Genre block 2: Hindi Horror -->
-        <div class="genre-block">
+        <div class="genre-block" data-query="Hindi Horror">
           <div class="genre-card">
             <img src="images/hindi_horror.jpg" alt="Hindi Horror" />
             <div class="genre-overlay"></div>
@@ -220,7 +220,7 @@
         </div>
 
         <!-- Genre block 3: Mythology -->
-        <div class="genre-block">
+        <div class="genre-block" data-query="Mythology">
           <div class="genre-card">
             <img src="images/mythology.jpg" alt="Mythology" />
             <div class="genre-overlay"></div>
@@ -243,7 +243,7 @@
         </div>
 
         <!-- Genre block 4: Sci-Fi -->
-        <div class="genre-block">
+        <div class="genre-block" data-query="Sci-Fi">
           <div class="genre-card">
             <img src="images/sci_fi.jpg" alt="Sci-Fi" />
             <div class="genre-overlay"></div>
@@ -296,7 +296,7 @@
     </div>
   </footer>
 
-  <!-- Small JS: toggle dropdown on touch/click (mobile) -->
+  <!-- JS: dropdown + redirect -->
   <script>
     const API_KEY = "AIzaSyD844TSTfYIu_Cx8iJfOISmzrJj9aZy0UA"; // Replace with your key
 
@@ -312,14 +312,19 @@
         const dropdown = block.querySelector(".dropdown");
         const query = block.getAttribute("data-query");
 
-        block.querySelector(".genre-card").addEventListener("click", async () => {
-          // Toggle open
-          block.classList.toggle("open");
+        const card = block.querySelector(".genre-card");
 
-          // If already loaded, don’t fetch again
+        // Redirect on click
+        card.addEventListener("click", (e) => {
+          // Allow click on dropdown buttons separately
+          if (!e.target.closest(".watch-btn")) {
+            window.location.href = `results.html?search=${encodeURIComponent(query)}`;
+          }
+        });
+
+        // Fetch videos for dropdown only on hover
+        block.addEventListener("mouseenter", async () => {
           if (dropdown.dataset.loaded) return;
-
-          // Fetch and render
           const videos = await fetchVideos(query);
           dropdown.innerHTML = videos.map(v => `
             <div class="video-card">
@@ -328,7 +333,6 @@
               <a class="watch-btn" href="https://www.youtube.com/watch?v=${v.id.videoId}" target="_blank">Watch Now</a>
             </div>
           `).join("");
-
           dropdown.dataset.loaded = true;
         });
       });
@@ -336,4 +340,3 @@
   </script>
 </body>
 </html>
-
