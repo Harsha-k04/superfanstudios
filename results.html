@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Search Results - SuperFan Studios</title>
+  <title>SuperFan Studios</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: "Inter", sans-serif; background: #111; color: #fff; }
@@ -18,13 +18,19 @@
 </head>
 <body class="p-6">
 
-  <h1 class="text-3xl font-bold mb-6">Search Results</h1>
+  <h1 id="results-title" class="text-3xl font-bold mb-6">Search Results</h1>
   <div id="results-container" class="flex-container"></div>
 
   <script>
     const API_KEY = "AIzaSyD844TSTfYIu_Cx8iJfOISmzrJj9aZy0UA"; // Replace with your API key
     const params = new URLSearchParams(window.location.search);
-    const query = params.get("search");
+    const query = params.get("search") || "Search Results";
+
+    // Dynamically set the <h1> text
+    document.getElementById("results-title").textContent = query;
+
+    // Dynamically set the <title> tag
+    document.title = `${query} - SuperFan Studios`;
 
     async function fetchVideos(query) {
       const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=20&key=${API_KEY}`;
