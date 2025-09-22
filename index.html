@@ -297,46 +297,21 @@
   </footer>
 
   <!-- JS: dropdown + redirect -->
-  <script>
-    const API_KEY = "AIzaSyD844TSTfYIu_Cx8iJfOISmzrJj9aZy0UA"; // Replace with your key
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".genre-block").forEach(block => {
+      const query = block.getAttribute("data-query");
+      const card = block.querySelector(".genre-card");
 
-    async function fetchVideos(query) {
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=6&key=${API_KEY}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      return data.items || [];
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".genre-block").forEach(block => {
-        const dropdown = block.querySelector(".dropdown");
-        const query = block.getAttribute("data-query");
-
-        const card = block.querySelector(".genre-card");
-
-        // Redirect on click
-        card.addEventListener("click", (e) => {
-          // Allow click on dropdown buttons separately
-          if (!e.target.closest(".watch-btn")) {
-            window.location.href = `results.html?search=${encodeURIComponent(query)}`;
-          }
-        });
-
-        // Fetch videos for dropdown only on hover
-        block.addEventListener("mouseenter", async () => {
-          if (dropdown.dataset.loaded) return;
-          const videos = await fetchVideos(query);
-          dropdown.innerHTML = videos.map(v => `
-            <div class="video-card">
-              <img src="${v.snippet.thumbnails.medium.url}" alt="${v.snippet.title}" />
-              <p>${v.snippet.title}</p>
-              <a class="watch-btn" href="https://www.youtube.com/watch?v=${v.id.videoId}" target="_blank">Watch Now</a>
-            </div>
-          `).join("");
-          dropdown.dataset.loaded = true;
-        });
+      // Redirect to results.html on click of genre card
+      card.addEventListener("click", (e) => {
+        if (!e.target.closest(".watch-btn")) {
+          window.location.href = `results.html?search=${encodeURIComponent(query)}`;
+        }
       });
+
     });
-  </script>
+  });
+</script>
 </body>
 </html>
